@@ -1,0 +1,23 @@
+# 依赖包
+node_modules/
+
+# 编译后的文件
+dist/
+
+# 环境变量
+.env
+
+# 日志文件
+logs/
+*.log
+npm-debug.log*
+
+# IDE和编辑器文件
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 操作系统文件
+.DS_Store
+Thumbs.db
