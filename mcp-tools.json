@@ -1,0 +1,192 @@
+{
+  "schema_version": "1.0",
+  "server_name": "BSC MCP Server",
+  "server_description": "A Model Context Protocol server for interacting with the Binance Smart Chain (BSC) network",
+  "tools": [
+    {
+      "name": "get-block-number",
+      "description": "Returns the current block number on the Binance Smart Chain",
+      "parameters": {},
+      "examples": [
+        {
+          "request": {},
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "Current BSC block number: 34561234"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "get-block",
+      "description": "Returns block details for the given block hash or number",
+      "parameters": {
+        "blockHashOrNumber": {
+          "type": "string | number",
+          "description": "Block hash (string) or block number (number)"
+        }
+      },
+      "examples": [
+        {
+          "request": { "blockHashOrNumber": 34561234 },
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{ \"hash\": \"0x...\", \"number\": 34561234, ... }"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "get-transaction",
+      "description": "Returns transaction details for the given transaction hash",
+      "parameters": {
+        "txHash": {
+          "type": "string",
+          "description": "Transaction hash"
+        }
+      },
+      "examples": [
+        {
+          "request": { "txHash": "0x123..." },
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{ \"hash\": \"0x123...\", \"from\": \"0x...\", \"to\": \"0x...\", ... }"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "get-transaction-receipt",
+      "description": "Returns transaction receipt for the given transaction hash",
+      "parameters": {
+        "txHash": {
+          "type": "string",
+          "description": "Transaction hash"
+        }
+      },
+      "examples": [
+        {
+          "request": { "txHash": "0x123..." },
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{ \"transactionHash\": \"0x123...\", \"status\": 1, ... }"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "get-balance",
+      "description": "Returns BNB balance for the given wallet address",
+      "parameters": {
+        "address": {
+          "type": "string",
+          "description": "BSC wallet address"
+        }
+      },
+      "examples": [
+        {
+          "request": { "address": "0x8894e0a0c962cb723c1976a4421c95949be2d4e3" },
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "Balance: 1234.56 BNB"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "get-token-balance",
+      "description": "Returns BEP-20 token balance for the given token and wallet address",
+      "parameters": {
+        "tokenAddress": {
+          "type": "string",
+          "description": "BEP-20 token contract address"
+        },
+        "walletAddress": {
+          "type": "string",
+          "description": "BSC wallet address"
+        }
+      },
+      "examples": [
+        {
+          "request": { 
+            "tokenAddress": "0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82",
+            "walletAddress": "0x8894e0a0c962cb723c1976a4421c95949be2d4e3"
+          },
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "Token Balance: 1000.0"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "create-four-meme-token",
+      "description": "Creates a new Four.meme token with specified parameters",
+      "parameters": {
+        "name": {
+          "type": "string",
+          "description": "Full name of the token"
+        },
+        "symbol": {
+          "type": "string",
+          "description": "Token symbol (ticker)"
+        },
+        "initialSupply": {
+          "type": "number",
+          "description": "Initial token supply to mint"
+        },
+        "decimals": {
+          "type": "number",
+          "description": "Number of decimal places for the token (typically 18)"
+        },
+        "ownerAddress": {
+          "type": "string",
+          "description": "BSC address that will receive the initial token supply"
+        }
+      },
+      "examples": [
+        {
+          "request": { 
+            "name": "Four Pepe",
+            "symbol": "4PEPE",
+            "initialSupply": 420690000000,
+            "decimals": 18,
+            "ownerAddress": "0xYourWalletAddress"
+          },
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "Successfully created Four.meme token!\n\nToken Name: Four Pepe\nToken Symbol: 4PEPE\nToken Address: 0x123...\nTransaction Hash: 0xabc...\n\nYou can view the token on BscScan: https://bscscan.com/token/0x123..."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

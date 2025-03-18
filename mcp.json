@@ -1,0 +1,27 @@
+{
+  "name": "BSC MCP Server",
+  "version": "1.0.0",
+  "description": "A Model Context Protocol (MCP) server for interacting with the Binance Smart Chain (BSC) network",
+  "type": "server",
+  "repository": "https://github.com/ArcReactor9/BSC_MCP_SERVICES",
+  "author": "ArcReactor9",
+  "license": "ISC",
+  "categories": ["blockchain", "cryptocurrency", "finance", "smart-contracts"],
+  "interfaces": [
+    {
+      "type": "http",
+      "endpoint": "/mcp/tools/:toolName",
+      "method": "POST"
+    },
+    {
+      "type": "stdio",
+      "documentation": "Traditional MCP stdio interface for direct integration with LLM systems"
+    }
+  ],
+  "tags": ["bsc", "binance", "blockchain", "token", "four-meme", "web3"],
+  "resources": {
+    "overview": "mcp-overview.md",
+    "content": "mcp-content.md",
+    "tools": "mcp-tools.json"
+  }
+}
